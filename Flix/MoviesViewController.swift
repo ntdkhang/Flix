@@ -22,6 +22,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource,
 		super.viewDidLoad()
 		tableView.dataSource = self
 		tableView.delegate = self
+		tableView.rowHeight = 122
 		MovieService.shared.fetchMovies { movies in
 			self.movies = movies
 		}
@@ -33,10 +34,14 @@ class MoviesViewController: UIViewController, UITableViewDataSource,
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = UITableViewCell()
-		let movie = movies[indexPath.row]
-		cell.textLabel?.text = "\(movie.title)"
+		guard let cell = tableView.dequeueReusableCell(
+			withIdentifier: MovieTableViewCell.identifier) as? MovieTableViewCell
+		else {
+			return UITableViewCell()
+		}
 		
+		let movie = movies[indexPath.row]
+		cell.configure(with: movie)
 		return cell
 	}
 

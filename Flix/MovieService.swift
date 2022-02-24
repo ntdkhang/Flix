@@ -25,7 +25,9 @@ class MovieService {
 				var movies = [Movie]()
 				for rawData in moviesRawData {
 					let movie = Movie(title: rawData["original_title"] as! String,
-									  overview: rawData["overview"] as! String)
+									  overview: rawData["overview"] as! String,
+									  imageURL: self.createImageURL(with: rawData["poster_path"] as! String)
+					)
 					
 					movies.append(movie)
 				}
@@ -35,4 +37,9 @@ class MovieService {
 		}
 		task.resume()
 	}
+	
+	private func createImageURL(with path: String) -> String {
+		return "https://image.tmdb.org/t/p/w500" + path
+	}
+	
 }
