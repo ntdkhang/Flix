@@ -20,17 +20,24 @@ class MovieService {
 			if let error = error {
 				print(error.localizedDescription)
 			} else if let data = data {
-				let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-				let moviesRawData = dataDictionary["results"] as! [[String: Any]]
+				let decoder = JSONDecoder()
 				var movies = [Movie]()
-				for rawData in moviesRawData {
-					let movie = Movie(title: rawData["original_title"] as! String,
-									  overview: rawData["overview"] as! String,
-									  imageURL: self.createImageURL(with: rawData["poster_path"] as! String)
-					)
-					
+				let movieData = try! decoder.decode(MovieData.self, from: data)
+				let results = movieData.results
+
+				for result in results {
+					let title = result.title
+					let overview = result.overview
+					let posterURL = result.posterURL
+					let backdropURL = result.backdropURL
+
+					let movie = Movie(title: title,
+									  overview: overview,
+									  posterURL: posterURL,
+									  backdropURL: backdropURL)
 					movies.append(movie)
 				}
+
 				completion(movies)
 //				print(movies)
 			}
@@ -38,8 +45,9 @@ class MovieService {
 		task.resume()
 	}
 	
-	private func createImageURL(with path: String) -> String {
-		return "https://image.tmdb.org/t/p/w500" + path
+
+	private func createImageURL(with path: String) -> URL {
+		return URL(string: "https://image.tmdb.org/t/p/original" + path)!
 	}
 	
 }

@@ -23,7 +23,7 @@ class MovieTableViewCell: UITableViewCell {
 		
 		movieTitleLabel.text? = movie.title
 		movieOverviewLabel.text = movie.overview
-		movieImageView.af.setImage(withURL: URL(string: movie.imageURL)!)
+		movieImageView.af.setImage(withURL: movie.posterURL)
 	}
 	
 	override func prepareForReuse() {

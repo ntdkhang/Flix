@@ -8,9 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		062B754EFFC295685783D755 /* Pods_Flix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B723E72A00D60CBEEE136943 /* Pods_Flix.framework */; };
-		424F7BDE27C68B87002D3A58 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424F7BDD27C68B87002D3A58 /* Movie.swift */; };
+		4211DCDF27CFC89600CEB3A7 /* MovieDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4211DCDE27CFC89600CEB3A7 /* MovieDetailsViewController.swift */; };
+		424F7BDE27C68B87002D3A58 /* MovieData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424F7BDD27C68B87002D3A58 /* MovieData.swift */; };
 		424F7BE027C68C94002D3A58 /* MovieService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424F7BDF27C68C94002D3A58 /* MovieService.swift */; };
 		424F7BE427C69D14002D3A58 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424F7BE327C69D14002D3A58 /* MovieTableViewCell.swift */; };
+		42A1F0D027D0192D00F751D9 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A1F0CF27D0192D00F751D9 /* Movie.swift */; };
 		42D20EBF27C425310054D0ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D20EBE27C425310054D0ED /* AppDelegate.swift */; };
 		42D20EC127C425310054D0ED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D20EC027C425310054D0ED /* SceneDelegate.swift */; };
 		42D20EC327C425310054D0ED /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D20EC227C425310054D0ED /* MoviesViewController.swift */; };
@@ -20,9 +22,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		424F7BDD27C68B87002D3A58 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		4211DCDE27CFC89600CEB3A7 /* MovieDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewController.swift; sourceTree = "<group>"; };
+		424F7BDD27C68B87002D3A58 /* MovieData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieData.swift; sourceTree = "<group>"; };
 		424F7BDF27C68C94002D3A58 /* MovieService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieService.swift; sourceTree = "<group>"; };
 		424F7BE327C69D14002D3A58 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
+		42A1F0CF27D0192D00F751D9 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		42D20EBB27C425310054D0ED /* Flix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42D20EBE27C425310054D0ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		42D20EC027C425310054D0ED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -54,8 +58,14 @@
 				75B70B0182DD5FF5144765F1 /* Pods-Flix.debug.xcconfig */,
 				5BEC5552F55979A425E23F11 /* Pods-Flix.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		42A1F0CE27D0124300F751D9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		42D20EB227C425310054D0ED = {
@@ -79,11 +89,14 @@
 		42D20EBD27C425310054D0ED /* Flix */ = {
 			isa = PBXGroup;
 			children = (
+				424F7BDD27C68B87002D3A58 /* MovieData.swift */,
+				42A1F0CF27D0192D00F751D9 /* Movie.swift */,
+				42A1F0CE27D0124300F751D9 /* Model */,
 				42D20EBE27C425310054D0ED /* AppDelegate.swift */,
 				42D20EC027C425310054D0ED /* SceneDelegate.swift */,
 				42D20EC227C425310054D0ED /* MoviesViewController.swift */,
+				4211DCDE27CFC89600CEB3A7 /* MovieDetailsViewController.swift */,
 				424F7BE327C69D14002D3A58 /* MovieTableViewCell.swift */,
-				424F7BDD27C68B87002D3A58 /* Movie.swift */,
 				424F7BDF27C68C94002D3A58 /* MovieService.swift */,
 				42D20EC427C425310054D0ED /* Main.storyboard */,
 				42D20EC727C425330054D0ED /* Assets.xcassets */,
@@ -219,9 +232,11 @@
 				424F7BE027C68C94002D3A58 /* MovieService.swift in Sources */,
 				42D20EC327C425310054D0ED /* MoviesViewController.swift in Sources */,
 				424F7BE427C69D14002D3A58 /* MovieTableViewCell.swift in Sources */,
+				4211DCDF27CFC89600CEB3A7 /* MovieDetailsViewController.swift in Sources */,
 				42D20EBF27C425310054D0ED /* AppDelegate.swift in Sources */,
 				42D20EC127C425310054D0ED /* SceneDelegate.swift in Sources */,
-				424F7BDE27C68B87002D3A58 /* Movie.swift in Sources */,
+				42A1F0D027D0192D00F751D9 /* Movie.swift in Sources */,
+				424F7BDE27C68B87002D3A58 /* MovieData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,6 +394,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -408,6 +424,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
