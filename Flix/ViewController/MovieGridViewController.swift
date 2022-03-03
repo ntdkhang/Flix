@@ -25,6 +25,13 @@ class MovieGridViewController: UIViewController, UICollectionViewDataSource,
 		collectionView.delegate = self
 		collectionView.dataSource = self
 		
+		let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+		
+		layout.minimumLineSpacing = 10
+		layout.minimumInteritemSpacing = 20
+		
+		let width = (view.frame.width - layout.minimumInteritemSpacing) / 2
+		layout.itemSize = CGSize(width: width, height: width * 1.5)
 		MovieService.shared.fetchMovies(.superhero) { movies in
 			self.movies = movies
 			print(movies)
@@ -40,7 +47,8 @@ class MovieGridViewController: UIViewController, UICollectionViewDataSource,
 	
 	func collectionView(_ collectionView: UICollectionView,
 						cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieGridCell.identifier, for: indexPath) as! MovieGridCell
+		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieGridCell.identifier,
+													  for: indexPath) as! MovieGridCell
 		
 		let movie = movies[indexPath.item]
 		cell.configure(with: movie)
