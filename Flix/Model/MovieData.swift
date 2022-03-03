@@ -28,14 +28,14 @@ struct Result: Codable {
 	
 	
 	var posterURL: URL {
-		return URL(string: getURLString(from: posterPath))!
+		return URL(string: "https://image.tmdb.org/t/p/w500" + posterPath)!
 	}
 	
 	var backdropURL: URL {
-		return URL(string: getURLString(from: backdropPath))!
+		return URL(string: "https://image.tmdb.org/t/p/w780" + backdropPath)!
 	}
 	
 	private func getURLString(from path: String) -> String {
-		"https://image.tmdb.org/t/p/original" + path
+		"https://image.tmdb.org/t/p/w500" + path
 	}
 }

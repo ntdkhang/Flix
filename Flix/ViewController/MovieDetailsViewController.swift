@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class MovieDetailsViewController: UIViewController {
 	var movie: Movie!
@@ -19,6 +20,7 @@ class MovieDetailsViewController: UIViewController {
 
 		movieTitle.text = movie.title
 		movieOverview.text = movie.overview
+		movieOverview.sizeToFit()
 		moviePoster.af.setImage(withURL: movie.posterURL)
 		movieBackdrop.af.setImage(withURL: movie.backdropURL)
         // Do any additional setup after loading the view.

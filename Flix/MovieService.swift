@@ -9,9 +9,13 @@ import Foundation
 
 class MovieService {
 	static let shared = MovieService()
+	private var apiKey = "api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed"
 	
-	func fetchMovies(completion: @escaping (([Movie]) -> Void)) {
-		let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed")!
+	func fetchMovies(_ type: FetchTypeURL = .all,
+					 completion: @escaping (([Movie]) -> Void)) {
+		let urlString = "https://api.themoviedb.org/3/movie" + type.rawValue + apiKey
+		let url = URL(string: urlString)!
+//		let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed")!
 		let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData,
 								 timeoutInterval: 10)
 		let session = URLSession(configuration: .default, delegate: nil,
@@ -50,4 +54,10 @@ class MovieService {
 		return URL(string: "https://image.tmdb.org/t/p/original" + path)!
 	}
 	
+	enum FetchTypeURL: String {
+		case all = "/now_playing?"
+		case superhero = "/414906/similar?"
+	}
 }
+
+
