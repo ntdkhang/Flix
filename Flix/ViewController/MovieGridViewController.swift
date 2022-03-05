@@ -10,8 +10,6 @@ import UIKit
 class MovieGridViewController: UIViewController, UICollectionViewDataSource,
 							   UICollectionViewDelegate {
 	
-	
-	
 	var movies = [Movie]() {
 		didSet {
 			collectionView.reloadData()
@@ -19,6 +17,8 @@ class MovieGridViewController: UIViewController, UICollectionViewDataSource,
 	}
 	
 	@IBOutlet weak var collectionView: UICollectionView!
+	
+	
 	override func viewDidLoad() {
         super.viewDidLoad()
 		
@@ -54,6 +54,19 @@ class MovieGridViewController: UIViewController, UICollectionViewDataSource,
 		cell.configure(with: movie)
 		return cell
 	}
+	
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		let cell = sender as! UICollectionViewCell
+		let indexPath = collectionView.indexPath(for: cell)!
+		let movie = movies[indexPath.item]
+		
+		let movieDetailView = segue.destination as! MovieDetailsViewController
+		movieDetailView.movie = movie
+		
+	}
+	
+	
+	
     
 
     /*
